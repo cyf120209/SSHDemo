@@ -21,6 +21,4 @@
         <property name="maxUploadSize" value="9000000"/>
     </bean>
 
-    <context:property-placeholder location="swagger.properties"/>
-    <bean id="documentationConfig" class="com.spring.swagger.SwaggerConfig"/>
 </beans>

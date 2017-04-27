@@ -4,8 +4,6 @@ import com.serotonin.bacnet4j.LocalDevice;
 import com.spring.service.InitService;
 import com.spring.utils.ComPortutils;
 import com.spring.utils.MyLocalDevice;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,7 +16,6 @@ import java.util.Map;
 /**
  * Created by lenovo on 2017/3/20.
  */
-@Api(value = "pet", description = "the pet API")
 @Controller
 @RequestMapping(value = "/v1/init")
 public class InitController {
@@ -30,7 +27,6 @@ public class InitController {
      * 获取端口
      * @return
      */
-    @ApiOperation(value = "update the hotel", notes = "update the hotel", response = List.class)
     @RequestMapping(value = "/ports",method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public List<String> getPorts(){
