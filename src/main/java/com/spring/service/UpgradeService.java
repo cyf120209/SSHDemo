@@ -359,7 +359,7 @@ public class UpgradeService {
 //                    throw new IOException("Could not completely read file "
 //                            + updateFile.getName());
 //                }else{
-                int sent = 1024;
+                int sent = 0;
                 while (sent < fileTmp.length) {
                     sent = sentBuffer(fileTmp, sent);
                 }
