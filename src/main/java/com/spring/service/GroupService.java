@@ -46,6 +46,7 @@ public class GroupService {
     private List<Integer> mDevicesIDList = new ArrayList<>();
 
     private AnnounceListener listener;
+    private List<Integer> remoteDeviceIDList;
 
     /**
      * 获取map关系列表
@@ -56,7 +57,10 @@ public class GroupService {
             mSequence.clear();
             mRelativeList.clear();
             mRelativeList.clear();
-            listener = new AnnounceListener(this);
+            remoteDeviceIDList = MyLocalDevice.mRemoteUtils.getRemoteDeviceIDList();
+            if(listener==null){
+                listener = new AnnounceListener(this);
+            }
             MyLocalDevice.getInstance().getEventHandler().addListener(listener);
             Draper.sendAnnounce();
         } catch (BACnetException e) {
@@ -202,7 +206,6 @@ public class GroupService {
                 devList.add(instanceNumber1);
             }
         }
-        List<Integer> remoteDeviceIDList = MyLocalDevice.mRemoteUtils.getRemoteDeviceIDList();
         if(remoteDeviceIDList.contains(new Integer(instanceNumber1))){
             remoteDeviceIDList.remove(new Integer(instanceNumber1));
         }
