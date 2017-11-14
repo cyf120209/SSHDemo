@@ -68,10 +68,10 @@ public class MyLocalDevice {
             node = new MasterNode(serialParams, (byte) 2,2);
             MstpNetwork network = new MstpNetwork(node);
             Transport transport = new Transport(network);
-//            IpNetwork network = new IpNetwork("192.168.20.86");
+//            IpNetwork network = new IpNetwork("192.168.20.63");
 //            Transport transport = new Transport(network);
-            //        transport.setTimeout(15000);
-            //        transport.setSegTimeout(15000);
+//                    transport.setTimeout(15000);
+//                    transport.setSegTimeout(15000);
 
             localDevice = new LocalDevice(900, 900900, transport);
             mRemoteUtils = new RemoteUtils();

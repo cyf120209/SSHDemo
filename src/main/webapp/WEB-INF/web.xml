@@ -9,7 +9,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:/spring-*.xml</param-value>
+    <param-value>classpath:/spring-*.xml,classpath*:/spring/spring-*.xml</param-value>
     <!--<param-value>classpath:spring-bean.xml</param-value>-->
   </context-param>
   <!-- spring框架必须定义ContextLoaderListener，在启动Web容器时，自动装配Spring applicationContext.xml的配置信息 -->

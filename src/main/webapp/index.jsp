@@ -1,2 +1,2 @@
 <%--<jsp:forward page="login" />--%>
-<jsp:forward page="view" />
+<jsp:forward page="v1/device/devices" />

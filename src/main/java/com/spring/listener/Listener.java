@@ -50,7 +50,6 @@ public class Listener extends DeviceEventAdapter {
             }
         };
         STExecutor.submit(runnable);
-
     }
 
     @Override

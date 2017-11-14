@@ -4,13 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
 
-    <bean id="usersDAO" class="com.spring.dao.UserDAO">
-        <!--<property name="sessionFactory" ref="sessionFactory"></property>-->
-    </bean>
-    <bean id="userService" class="com.spring.service.UserService">
-        <property name="userDao" ref="usersDAO"></property>
-    </bean>
-
     <bean id="initService" class="com.spring.service.InitService">
     </bean>
 
@@ -21,6 +14,9 @@
     </bean>
 
     <bean id="upgradeService" class="com.spring.service.UpgradeService">
+    </bean>
+
+    <bean id="deviceService" class="com.spring.service.DeviceService">
     </bean>
 
     <!--<bean id="socket" class="com.spring.socket.SpringWebSocketHandler">-->
