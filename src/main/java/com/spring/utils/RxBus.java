@@ -1,9 +1,9 @@
 package com.spring.utils;
 
-import rx.Observable;
-import rx.subjects.PublishSubject;
-import rx.subjects.SerializedSubject;
-import rx.subjects.Subject;
+
+import io.reactivex.Observable;
+import io.reactivex.subjects.PublishSubject;
+import io.reactivex.subjects.Subject;
 
 /**
  * Created by lenovo on 2017/2/13.
@@ -12,10 +12,10 @@ public class RxBus {
 
     private static volatile RxBus defaultInstance;
 
-    private final Subject<Object, Object> bus;
+    private final Subject<Object> bus;
     // PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者
     private RxBus() {
-        bus = new SerializedSubject<>(PublishSubject.create());
+        bus = PublishSubject.create().toSerialized();
     }
     // 单例RxBus
     public static RxBus getDefault() {

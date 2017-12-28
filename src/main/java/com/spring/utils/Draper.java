@@ -14,8 +14,8 @@ import com.serotonin.bacnet4j.type.constructed.SequenceOf;
 import com.serotonin.bacnet4j.type.enumerated.ObjectType;
 import com.serotonin.bacnet4j.type.primitive.Boolean;
 import com.serotonin.bacnet4j.type.primitive.*;
-import com.spring.model.DraperInformation;
-import com.spring.model.DraperInformationItem;
+import model.DraperInformation;
+import util.DraperInformationItem;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,7 +53,7 @@ public class Draper {
     public static UnsignedInteger announceDraperInformation=new UnsignedInteger(ANNOUNCE_DRAPER_INFORMATION);
     public static ObjectIdentifier deviceid=new ObjectIdentifier(ObjectType.device,900900);
 
-    private static LocalDevice dev=MyLocalDevice.getInstance();
+    private static LocalDevice dev;
 
     private static int calcDataCRC(int dataValue, int crcValue) {
         int crcLow = (crcValue & 0xff) ^ dataValue; /* XOR C7..C0 with D7..D0 */

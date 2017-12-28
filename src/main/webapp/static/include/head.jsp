@@ -16,10 +16,13 @@
 <title>管理系统</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%-- jquery --%>
-<script type="text/javascript" src="static/jquery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/common/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="js/common/jquery.jsonp-2.4.0.min.js"></script>
 <%-- bootstrap --%>
 <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.min.css">
+<link href="static/css/font-awesome.min.css" rel="stylesheet">
+<link href="static/css/templatemo-style.css" rel="stylesheet">
 <script src="static/bootstrap/js/bootstrap.min.js"></script>
 <script src="static/bootstrap/bootstrap-common.js"></script>
 
