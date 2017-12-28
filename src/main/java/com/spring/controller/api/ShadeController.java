@@ -31,6 +31,7 @@ public class ShadeController {
     public String getShades(Model model, HttpServletRequest request,
                             @RequestParam(required = false) Integer pageStartIndex){
         List<ShadeEntity> shadeList = service.getShadeList();
+        int size = shadeList.size();
         PageInfo pageInfo = new PageInfo(shadeList);
         int pageNum = (pageStartIndex == null) ? 1 : pageStartIndex;
         pageInfo.setPageNum(pageNum);
