@@ -1,15 +1,10 @@
 package com.spring.service;
 
-import com.serotonin.bacnet4j.RemoteDevice;
-import com.serotonin.bacnet4j.exception.BACnetException;
-import com.spring.bean.AddGroupEntity;
 import com.spring.bean.GroupEntity;
 import com.spring.bean.ShadeGroup;
 import com.spring.dao.IGroupDao;
 import com.spring.service.manager.RetrofitManager;
-import com.spring.utils.Draper;
 import io.reactivex.functions.Consumer;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 
 import java.util.*;
@@ -51,11 +46,6 @@ public class GroupService {
      * @param groupEntity 组操作的实体（设备ID，组ID，命令）
      */
     public void operation(GroupEntity groupEntity){
-        try {
-            Draper.sendCmd(groupEntity.getDeviceID(), groupEntity.getGroupID(), groupEntity.getCmd());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -74,11 +64,6 @@ public class GroupService {
      * @param groupID 组ID
      */
     public void delete(int deviceID,int groupID){
-        try {
-            Draper.sendGroupSubscription(true,deviceID,groupID);
-        } catch (Exception e1) {
-            e1.printStackTrace();
-        }
     }
 
 }
