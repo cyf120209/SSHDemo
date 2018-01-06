@@ -16,9 +16,9 @@
     <%--</div>--%>
     <nav class="templatemo-left-nav">
         <ul>
-            <li><a href="${pageContext.request.contextPath}/v1/device/devices"></i>Device</a></li>
-            <li><a href="${pageContext.request.contextPath}/v1/group/groups"></i>Group</a></li>
-            <li><a href="${pageContext.request.contextPath}/v1/group/groups">Log</a></li>
+            <li><a href="${pageContext.request.contextPath}/v1/shades"></i>Shades</a></li>
+            <li><a href="${pageContext.request.contextPath}/v1/groups"></i>Groups</a></li>
+            <li><a href="${pageContext.request.contextPath}/v1/groups">Log</a></li>
             <%--<li><a href="${pageContext.request.contextPath}/admin/activity/show"><i class="fa fa-database fa-fw"></i>活动管理</a></li>--%>
         <%--<li><a href="${pageContext.request.contextPath}/admin/goods/show"><i class="fa fa-map-marker fa-fw"></i>活动管理</a></li>--%>
             <%--<li><a href="${pageContext.request.contextPath}/admin/chat"><i class="fa fa-sliders fa-fw"></i>客服管理</a></li>--%>

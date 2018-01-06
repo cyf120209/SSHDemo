@@ -100,4 +100,24 @@ public class ShadeEntity implements Serializable {
 //    public void setShadeGroups(Set shadeGroups) {
 //        this.shadeGroups = shadeGroups;
 //    }
+
+    public int getAttrCount(){
+        int count=0;
+        if(shadeId!=null){
+            count++;
+        }
+        if(shadeName!=null){
+            count++;
+        }
+        if(shadePosition!=null){
+            count++;
+        }
+        if(shadePriority!=null){
+            count++;
+        }
+        if(shadeStatus!=null){
+            count++;
+        }
+        return count;
+    }
 }

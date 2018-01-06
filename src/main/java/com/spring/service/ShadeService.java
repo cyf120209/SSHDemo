@@ -1,17 +1,17 @@
 package com.spring.service;
 
-import com.serotonin.bacnet4j.RemoteDevice;
+import com.googlecode.ehcache.annotations.Cacheable;
 import com.spring.bean.ShadeEntity;
 import com.spring.service.manager.RetrofitManager;
 import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 /**
  * Created by lenovo on 2017/3/21.
  */
+@Service("shadeService")
 public class ShadeService {
 
     private Object lock=new Object();
@@ -33,6 +33,7 @@ public class ShadeService {
      * 获取电机列表
      * @return
      */
+    @Cacheable(cacheName = "myCache")
     public List<ShadeEntity> getShadeList() {
         List<ShadeEntity> shadeEntityList=new ArrayList<>();
         RetrofitManager.Builder()
@@ -40,6 +41,7 @@ public class ShadeService {
                 .subscribe(new Consumer<List<ShadeEntity>>() {
                     @Override
                     public void accept(List<ShadeEntity> shadeEntities) throws Exception {
+
                         shadeEntityList.addAll(shadeEntities);
                     }
                 }, new Consumer<Throwable>() {

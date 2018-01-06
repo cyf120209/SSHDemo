@@ -8,10 +8,7 @@ import com.spring.pagehelper.PageInfo;
 import com.spring.service.GroupService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -22,18 +19,20 @@ import java.util.Map;
  * Created by lenovo on 2017/3/20.
  */
 @Controller
-@RequestMapping(value = "/v1/group")
+@RequestMapping(value = "/v1/groups")
 public class GroupController {
 
     @Resource(name = "groupService")
     public GroupService service;
 
-    @RequestMapping(value = "/groups",method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
-    public String groups(Model model, HttpServletRequest request){
+    @RequestMapping(value = "",method = RequestMethod.GET,produces = {"application/json;charset=UTF-8"})
+    public String groups(Model model, HttpServletRequest request,
+                         @RequestParam(required = false) Integer pageStartIndex){
         List<ShadeGroup> groupList = service.getGroups();
-        model.addAttribute("groupList",groupList);
-        PageInfo pageInfo = new PageInfo(groupList,10, 4);
-        model.addAttribute("pageInfo",groupList);
+        PageInfo pageInfo = new PageInfo(groupList,10);
+        pageInfo.setPageNum((null==pageStartIndex)?1:pageStartIndex);
+        model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("groupList",pageInfo.getList());
         return "pages/group/index";
     }
 

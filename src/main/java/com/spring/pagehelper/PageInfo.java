@@ -99,6 +99,7 @@ public class PageInfo<T> implements Serializable {
             this.pageNum = 1;
             this.total = list.size();
             this.pages = (int)Math.ceil(this.total * 1.0 / this.pageSize);
+            this.list=list;
 //            this.size = list.size();
             this.navigatePages = navigatePages;
             this.calcNavigatepageNums();
@@ -181,7 +182,9 @@ public class PageInfo<T> implements Serializable {
     }
 
     public List<T> getList() {
-        return list;
+        int endIndex = pageNum * pageSize;
+        List<T> l=list.subList((pageNum-1)*pageSize, (endIndex>list.size())?list.size():endIndex);
+        return l;
     }
 
     public void setList(List<T> list) {

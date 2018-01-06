@@ -1,6 +1,8 @@
 package com.spring.service.manager;
 
 import com.spring.bean.ShadeEntity;
+import com.spring.bean.ShadeGroup;
+import com.spring.service.IShadeGroupService;
 import com.spring.service.IShadeService;
 import io.reactivex.Observable;
 import okhttp3.*;
@@ -25,6 +27,8 @@ public class RetrofitManager {
 
     private IShadeService mIShadeService;
 
+    private IShadeGroupService mIShadeGroupService;
+
     public static RetrofitManager Builder(){
         return new RetrofitManager();
     }
@@ -38,6 +42,7 @@ public class RetrofitManager {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         mIShadeService=retrofit.create(IShadeService.class);
+        mIShadeGroupService=retrofit.create(IShadeGroupService.class);
 
     }
 
@@ -49,7 +54,7 @@ public class RetrofitManager {
 //                            .addInterceptor(mRewriteCacheControlInterceptor)
 //                            .addNetworkInterceptor(mRewriteCacheControlInterceptor)
                             .retryOnConnectionFailure(true)
-                            .connectTimeout(15, TimeUnit.SECONDS)
+                            .connectTimeout(10, TimeUnit.SECONDS)
                             .build();
 
                 }
@@ -83,5 +88,9 @@ public class RetrofitManager {
 
     public Observable<List<ShadeEntity>> getShadeList(){
         return mIShadeService.getShadeList();
+    }
+
+    public Observable<List<ShadeGroup>> getShadeGroupList(){
+        return mIShadeGroupService.getShadeGroupList();
     }
 }

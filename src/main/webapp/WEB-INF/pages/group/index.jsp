@@ -25,9 +25,10 @@
                     <table class="table table-striped table-bordered table-hover templatemo-user-table">
                         <thead>
                         <tr>
+                            <th>num</th>
                             <th>id</th>
-                            <th>deviceId</th>
-                            <th>groupId</th>
+                            <%--<th>deviceId</th>--%>
+                            <%--<th>groupId</th>--%>
                             <th>groupName</th>
                         </tr>
                         </thead>
@@ -35,8 +36,9 @@
                             <tbody>
                             <tr>
                                 <td width="50">${row.count}</td>
-                                <td >${item.deviceId}</td>
-                                <td >${item.groupId}</td>
+                                <td width="300">${item.id}</td>
+                                <%--<td >${item.deviceId}</td>--%>
+                                <%--<td >${item.groupId}</td>--%>
                                 <td >${item.groupName}</td>
                             </tr>
                             </tbody>
